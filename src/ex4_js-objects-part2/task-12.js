@@ -1,5 +1,5 @@
 function sum(a, b) {
-    let sum = (a + b).toFixed(3);
-    return +sum;
+    return Number((a + b).toFixed(3));
 }
+
 module.exports = sum;

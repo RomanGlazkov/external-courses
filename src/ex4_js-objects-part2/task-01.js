@@ -1,8 +1,9 @@
 function findPrototypeProperty(key, obj) {
-    let value;
     if (!obj.hasOwnProperty(key)) {
-        value = obj[key];
+        return obj[key];
     }
-    return value;
+    
+    return undefined;
 }
+
 module.exports = findPrototypeProperty;
