@@ -1,0 +1,27 @@
+.lists-container-1 {
+    background-color:#800000;
+    width: 500px;
+    font-family: sans-serif;
+}
+
+.lists-container-2 {
+    background-color: aqua;
+    width: 50%;
+    font-family: serif;
+}
+
+.paragraphs-container {
+    background: url('https://loremipsum.io/assets/images/lorem-ipsum-generator-custom-placeholder-text.jpg');
+    font-family: Verdana;
+}
+
+.tables-container {
+    background-color: rgb(188, 143, 143);
+    height: 10rem;
+    width: 50vw;
+    font-family: 'New Tegomin', serif;
+}
+
+.image-container {
+    background-color: rgba(255, 248, 220, .7)
+}
