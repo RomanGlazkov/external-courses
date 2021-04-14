@@ -369,7 +369,7 @@ body {
 
 .gradient {
     height: 150px;
-    background: linear-gradient(to right bottom, #3399FF 0 50%, #fff 50% 100%);
+    background-image: linear-gradient(to right bottom, #3399FF 50%, #fff 50%);
     display: none;
 }
 
