@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .field {
+            margin-top: 1rem;
+        }
+
+        .last-field {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="http://httpbin.org/post" method="post">
+            <fieldset>
+                <legend>Personal data</legend>
+                <div>
+                    <div class="field">
+                        <label for="surname">Surname</label>
+                        <input type="text" name="surname" id="surname">
+                    </div>
+                    <div class="field">
+                        <label for="firstname">First Name</label>
+                        <input type="text" name="firstname" id="firstname">
+                    </div>
+                    <div class="field">
+                        <label for="middlename">Middle Name</label>
+                        <input type="text" name="middlename" id="middlename">
+                    </div>
+                    <div class="field">
+                        You are
+                        <label>
+                            <input type="radio" name="sex" value="male">male
+                        </label>
+                        <label>
+                            <input type="radio" name="sex" value="female">female
+                        </label>
+                    </div>
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input type="number" name="age" id="age" min="18" max="101">
+                    </div>
+                    <div class="field">
+                        Country of Residence
+                        <select name="country">
+                            <option value="Russia">Russia</option>
+                            <option value="Spain">Spain</option>
+                            <option value="England">England</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        City
+                        <label>
+                            <input type="checkbox" name="city" value="Ryazan">Ryazan
+                        </label>
+                        <label>
+                            <input type="checkbox" name="city" value="Moscow">Moscow
+                        </label>
+                    </div>
+                    <div class="field last-field">
+                        Photography
+                        <input type="file" name="photo">
+                    </div>
+                    <hr>
+                    <div class="field">
+                        Title
+                        <select name="skills" size="8" multiple>
+                            <optgroup label="Technologies">
+                                <option value="Web Master">Web Master</option>
+                                <option value="Database Admin">Database Administrator</option>
+                                <option value="Computer design">Computer-aided design</option>
+                            </optgroup>
+                            <optgroup label="Finance">
+                                <option value="Economic Planning">Economic Planning</option>
+                                <option value="Management accounting">Management accounting</option>
+                                <option value="Budgeting and planning">Budgeting and planning</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="salary">Salary</label>
+                        <input type="range" name="salary" id="salary" min="50" max="200" step="10">
+                    </div>
+                    <div class="field">
+                        <textarea name="additional info" placeholder="Tell us about yourself..." cols="50" rows="10"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div>
+                    <div class="field">
+                        <label for="site">Site</label>
+                        <input type="url" name="site" id="site" pattern="https://.*">
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" pattern=".+@.*">
+                    </div>
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <input type="tel" name="phone" id="phone">
+                    </div>
+                </div>
+            </fieldset>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="field">
+                <input type="submit" value="Отправить">
+                <input type="reset" value="Сбросить">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

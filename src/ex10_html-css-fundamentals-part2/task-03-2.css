@@ -1,0 +1,28 @@
+.header-cell {
+    font-weight: normal;
+    color: #696969;
+    padding: 5px 0;
+    font-size: .8rem;
+}
+
+.header-cell:first-child {
+    letter-spacing: 1px;
+}
+
+.cell {
+    color: rgba(0, 0, 0, .8);
+    padding: 15px 0;
+}
+
+.outstanding, .email {
+    text-align: left;
+    padding-left: 15px;
+}
+
+.customer {
+    text-transform: capitalize;
+}
+
+.row:hover {
+    background-color: #A9A9A9;
+}
