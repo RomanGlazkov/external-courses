@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .header {
@@ -23,7 +24,6 @@ body {
 }
 
 .title {
-    font-family: Roboto;
     font-size: 28px;
     line-height: 33px;
     color: #FFFFFF;
@@ -52,7 +52,6 @@ body {
 }
 
 .create-list_title {
-    font-family: Roboto;
     font-size: 18px;
     line-height: 21px;
     color: #000000;
@@ -64,6 +63,17 @@ body {
     height: 40px;
     display: flex;
     align-items: center;
+    margin-right: 10px;
+}
+
+.user-menu:hover {
+    cursor: pointer;
+}
+
+.user-menu:hover .user-avatar {
+    background-color: #87CEFA;
+    background-size: 110%;
+    background-position: center;
 }
 
 .user-avatar {
@@ -77,11 +87,19 @@ body {
     width: 24px;
     height: 24px;
     background: url(./assets/arrow-down.png);
+    transform: rotate(0deg);
+    transition: transform 0.8s;
+}
+
+.open {
+    transform: rotate(-180deg);
+    transition: transform 0.8s;
 }
 
 .main-container {
     height: calc(100vh - 122px);
     background-color: #1E90FF;
+    position: relative;
 }
 
 .horizontal-scroll {
@@ -106,7 +124,6 @@ body {
 }
 
 .active_tasks, .finished_tasks, .sign {
-    font-family: Roboto;
     font-size: 18px;
     line-height: 21px;
     color: #FFFFFF;
@@ -118,4 +135,43 @@ body {
 
 .sign {
     margin-right: 24px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background-color: #0067A3;
+    border: 1px solid #0067A3;
+    border-radius: 5px;
+    padding: 10px 10px 5px;
+    font-size: 16px;
+    animation: appear 1s;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-list > li {
+    background-color: #EBECF0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.dropdown-list > li:hover {
+    cursor: pointer;
+    background-color: lightblue;
 }
