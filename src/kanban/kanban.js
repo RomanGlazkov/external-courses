@@ -1,3 +1,5 @@
+let isDropdownOpened;
+
 function showDropDown() {
     const dropdownTemplate = `<div class="dropdown">
                                 <ul class="dropdown-list">
@@ -12,10 +14,12 @@ function showDropDown() {
     let dropdownList = document.querySelector('.dropdown');
 
     arrow.classList.toggle('open');
-    if (dropdownList) {
+    if (isDropdownOpened) {
         dropdownList.parentNode.removeChild(dropdownList);
+        isDropdownOpened = false;
     } else {
         mainContainer.innerHTML = dropdownTemplate;
+        isDropdownOpened = true;
     }
 }
 
