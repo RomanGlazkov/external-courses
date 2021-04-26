@@ -98,14 +98,14 @@ body {
     justify-content: space-between;
 }
 
-.tasks {
+.tasks-info {
     margin-left: 67px;
     display: flex;
     align-items: center;
     height: 100%;
 }
 
-.active_tasks, .finished_tasks, .sign {
+.active_tasks, .finished_tasks, .copyright {
     font-family: Roboto;
     font-size: 18px;
     line-height: 21px;
@@ -116,6 +116,6 @@ body {
     margin-right: 36px;
 }
 
-.sign {
+.copyright {
     margin-right: 24px;
 }
