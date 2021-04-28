@@ -1,4 +1,4 @@
-let isDropdownOpened;
+let isDropdownOpened = false;
 
 function showDropDown() {
     const dropdownTemplate = `<div class="dropdown">
