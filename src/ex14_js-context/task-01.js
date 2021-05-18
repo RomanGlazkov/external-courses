@@ -1,23 +1,23 @@
 const Calculator = {
     currentValue: 0,
 
-    getResult: function() {
+    getResult() {
         return this.currentValue;
     },
 
-    setState: function(state) {
+    setState(state) {
         if (arguments.length) {
             this.currentValue = state;
         }
         return this;
     },
 
-    reset: function() {
+    reset() {
         this.currentValue = 0;
         return this;
     },
 
-    fetchData: function(callback) {
+    fetchData(callback) {
         let promise = new Promise((resolve) => {
             if (callback(500)) {
                 resolve(500);
@@ -26,22 +26,22 @@ const Calculator = {
         return promise.then(result => this.setState(result));
     },
 
-    add: function(startValue = 0) {
+    add(startValue = 0) {
         this.currentValue += startValue;
         return this;
     },
 
-    subtract: function(startValue = 0) {
+    subtract(startValue = 0) {
         this.currentValue -= startValue;
         return this;
     },
 
-    divide: function(startValue = 1) {
+    divide(startValue = 1) {
         this.currentValue /= startValue;
         return this;
     },
 
-    multiply: function(startValue = 1) {
+    multiply(startValue = 1) {
         this.currentValue *= startValue;
         return this;
     },
