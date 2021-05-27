@@ -14,3 +14,24 @@
 - Не использовать устаревшие операторы (var, и тд)
 
 PS. в index.html может лежать весь html, но так же можно разбить его на модули и вставлять в DOM через специальные методы. Инициатива при выборе дополнительных инструментов привествуется
+
+
+## Installation
+
+Clone project to your folder and then install dependencies:
+
+```bash
+npm install
+```
+
+How to run WebPack dev server:
+
+```bash
+npm start
+```
+
+How to build project:
+
+```bash
+npm run build
+```
