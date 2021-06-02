@@ -5,30 +5,16 @@ class Room {
     }
 
     getAppliancesPower() {
-        let result = 0;
-
-        this.appliances.forEach(elem => {
-            if (elem.isTurnedOn) {
-                result += elem.power;
-            }
-        });
+        let turnedOnAppliances = this.appliances.filter(elem => elem.isTurnedOn);
+        let result = turnedOnAppliances.reduce((sum, elem) => sum + elem.power, 0);
 
         return result;
     }
 
     searchAppliance(applianceName) {
-        let isFound = false;
-
-        this.appliances.forEach(elem => {
-            if (elem.name.search(applianceName.toLowerCase()) !== -1) {
-                console.log(elem);
-                isFound = true;
-            }
-        });
-
-        if (!isFound) {
-            console.log('Nothing found!');
-        }
+        let appliance = this.appliances.find(elem => elem.name.search(applianceName.toLowerCase()) !== -1);
+        
+        return appliance ? console.log(appliance) : console.log('Nothing found!');
     }
 }
 
