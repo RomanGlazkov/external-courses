@@ -81,23 +81,29 @@ function showDropDown() {
     }
 }
 
+function createTasksListTemplate(title) {
+    const template = `<div class="tasks-list">
+                        <header class="tasks-header">
+                            <div class="tasks-header-title">${title}</div>
+                            <div class="tasks-header-menu">
+                                <div class="tasks-header-menu_element"></div>
+                                <div class="tasks-header-menu_element"></div>
+                                <div class="tasks-header-menu_element"></div>
+                            </div>
+                        </header>
+                        <div class="tasks-container" id="${title}-tasks-container"></div>
+                        <button class="add-card" id="${title}">+ Add card</button>
+                      </div>`;
+
+    return template;
+}
+
 function createTasksLists(listsArray) {
     if (listsArray.length) {
         createNewListBtn.classList.remove('attention');
         listsArray.forEach((elem, i) => {
-            listsContainer.innerHTML += `<div class="tasks-list">
-                                            <header class="tasks-header">
-                                                <div class="tasks-header-title">${elem.title}</div>
-                                                <div class="tasks-header-menu">
-                                                    <div class="tasks-header-menu_element"></div>
-                                                    <div class="tasks-header-menu_element"></div>
-                                                    <div class="tasks-header-menu_element"></div>
-                                                </div>
-                                            </header>
-                                            <div class="tasks-container" id="${elem.title}-tasks-container"></div>
-                                            <button class="add-card" id="${elem.title}">+ Add card</button>
-                                        </div>`;
-    
+            listsContainer.innerHTML += createTasksListTemplate(elem.title);
+
             localStorageTasks[i].forEach(task => {
                 const taskTemplate = `<div class="task">${task}</div>`;
                 const tasksContainer = document.getElementById(`${elem.title}-tasks-container`);
@@ -281,30 +287,23 @@ function deleteList(index) {
 }
 
 function countTasks() {
+    let activeTasksQuantity = 0;
+    let finishedTasksQuantity = 0;
     localStorageTasks = getLocalStorageTasks();
 
+    activeTasksContainer.innerHTML = `Active tasks: ${activeTasksQuantity}`;
+    finishedTasksContainer.innerHTML = `Finished tasks: ${finishedTasksQuantity}`;
+
     if (dataMock.length) {
-        localStorageTasks.forEach((elem, index) => {
-            if (index === 0) {
-                if (elem.length) {
-                    activeTasksContainer.innerHTML = `Active tasks in the first list: ${elem.length}`;
-                } else {
-                    activeTasksContainer.innerHTML = `Active tasks: 0`;
-                }
-            }
-            if (localStorageTasks.length > 1 && index === localStorageTasks.length - 1) {
-                if (elem.length) {
-                    finishedTasksContainer.innerHTML = `Finished tasks in the last list: ${elem.length}`;
-                } else {
-                    finishedTasksContainer.innerHTML = `Finished tasks: 0`;
-                }
-            } else {
-                finishedTasksContainer.innerHTML = `Finished tasks: 0`;
-            }
-        });
-    } else {
-        activeTasksContainer.innerHTML = `Active tasks: 0`;
-        finishedTasksContainer.innerHTML = `Finished tasks: 0`;
+        activeTasksQuantity = localStorageTasks[0] ? localStorageTasks[0].length : 0;
+        activeTasksContainer.innerHTML = `Active tasks in the first list: ${activeTasksQuantity}`;
+
+        if (localStorageTasks.length > 1) {
+            finishedTasksQuantity = localStorageTasks[localStorageTasks.length - 1] ? localStorageTasks[localStorageTasks.length - 1].length : 0;
+            finishedTasksContainer.innerHTML = `Finished tasks in the last list: ${finishedTasksQuantity}`;
+        } else {
+            finishedTasksContainer.innerHTML = `Finished tasks: ${finishedTasksQuantity}`;
+        }
     }
 }
 
